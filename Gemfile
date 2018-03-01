@@ -34,7 +34,7 @@ gem 'jbuilder', '~> 2.5'
 gem 'haml'
 gem 'haml-rails'
 
-gem 'paperclip'
+gem 'paperclip', '~> 5.2.0'
 
 # User profile gems
 gem 'devise'
