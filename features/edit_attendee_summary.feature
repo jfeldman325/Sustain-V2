@@ -3,7 +3,7 @@ Feature: Edit summary
     so that I can edit a previously submitted summary of an event
     I want to be able to edit an event summary I had already submitted
 
-    Background: the website already has some exisiting events and users
+    Background: the website already has some existing events and users
         Given these Events:
             |id|title|location|recurring|points|description|
             |1 |Class 1| Persson 108|yes|3|Recycling Class|
