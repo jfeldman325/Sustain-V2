@@ -12,7 +12,7 @@ Rails.application.routes.draw do
 
   resources :users
   resources :events
-  root to: 'events#index'
+  root to: 'main#general'
 
   resources :events do
     resources :registrees

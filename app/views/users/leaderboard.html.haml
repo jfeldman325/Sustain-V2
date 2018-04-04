@@ -9,7 +9,7 @@
 
     %tbody
       -@champions.each_with_index do |u, index|
-        %tr
+        %tr.tablecontents
           %td.place= "#{(index + 1).to_s + "."}"
           %td.name= link_to "#{u.name}", user_path(u)
           %td.points= "#{u.tpoints}"
@@ -25,7 +25,7 @@
 
     %tbody
       -@advocates.each_with_index do |u, index|
-        %tr
+        %tr.tablecontents
           %td.place= "#{(index + 1).to_s + "."}"
           %td.name= link_to "#{u.name}", user_path(u)
           %td.points= "#{u.tpoints}"
@@ -41,7 +41,7 @@
 
     %tbody
       -@associates.each_with_index do |u, index|
-        %tr
+        %tr.tablecontents
           %td.place= "#{(index + 1).to_s + "."}"
           %td.name= link_to "#{u.name}", user_path(u)
           %td.points= "#{u.tpoints}"

@@ -110,13 +110,13 @@ Then /^(?:|I )should see "([^"]*)"$/ do |text|
   end
 end
 
-# Then /^I should see some general information about the passport$/ do
-#   if page.respond_to? :should
-#     page.should have_content("Pumilio")
-#   else
-#     assert page.has_content?("Pumilio")
-#   end
-# end
+Then /^I should see some general information about the passport$/ do
+  if page.respond_to? :should
+    page.should have_content("Pumilio")
+  else
+    assert page.has_content?("Pumilio")
+  end
+end
 
 Then /^I should see links to other areas of the site$/ do
   if page.respond_to? :should

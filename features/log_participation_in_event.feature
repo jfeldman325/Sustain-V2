@@ -27,9 +27,9 @@ Feature: Logging Participation in an Event
             |user_id|occurrence_id|summary|
             |2      |2            |whats good|
 
-    Scenario: Submiting a Summary for an event
+    Scenario: Submitting a Summary for an event
         Given I am signed in with provider Google
-        Given I am on the home page
+        Given I am on the events page
         When I follow "Class 1"
         Then I follow "Register for this Event"
         Then I should see "You are now registered for the event Class 1"
@@ -41,8 +41,8 @@ Feature: Logging Participation in an Event
         And I press "Submit this summary"
 
     Scenario: Incorrectly submitting a summary for an event
-        Given I am signed in with provider Google 
-        Given I am on the home page
+        Given I am signed in with provider Google
+        Given I am on the events page
         When I follow "Class 1"
         Then I follow "Register for this Event"
         Then I should see "You are now registered for the event Class 1"
@@ -53,4 +53,3 @@ Feature: Logging Participation in an Event
         When I fill in "Summary" with ""
         And I press "Submit this summary"
         Then I should see "Failed to create summary for 'Class 1'"
-
