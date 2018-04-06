@@ -20,6 +20,7 @@ $color-background-0: #FFFFFF;
 
 .tierheader {
   text-align: center;
+  padding: 20px;
 }
 
 body{
@@ -39,16 +40,25 @@ body{
     @include fonty(15pt);
   }
 
-  table.table-responsive {
-    width: 60%;
-    margin-left: 20%;
-    margin-right: 20%;
+  .col1 {
+  width: 50%;
   }
 
-  table.table-bordered {
+  .col2 {
+  width: 50%;
+  }
+
+  .col3 {
+    width: 50%;
+  }
+
+  th {
+    text-align: center;
+  }
+
+  .table-responsive {
     width: 60%;
     margin-left: 20%;
-    margin-right: 20%;
   }
 
   .profileheader{
