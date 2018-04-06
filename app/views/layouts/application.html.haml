@@ -12,8 +12,7 @@
     %h3.title Colgate Sustainability Passport Program
     %div.navbar.navbar-light.bg-light
       %a.navbar-brand{ :href => root_path}= image_tag("sus_logo.jpg", :height => 50)
-      = link_to "All Events", all_path, class: "nav-link nav-item"
-      .nav-link= link_to "Upcoming Events", events_path
+      = link_to "All Events", events_path, class: "nav-link nav-item"
       .nav-link= link_to "Leaderboard", leaderboard_path
       .nav-link= link_to "About the Program", about_path
       -if user_signed_in?

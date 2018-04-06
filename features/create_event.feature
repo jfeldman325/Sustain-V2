@@ -33,7 +33,7 @@ Feature: Create a new event
     And I should see that "Class 2" has a date_time of "December 4, 2018 05:00 PM"
     And I should see the image "noimg"
 
-  Scenario: Create a new event with out a field
+  Scenario: Create a new event without a field
     Given I am on the create new event page
     When I fill in the following:
       | Title         | Class 2                    |
