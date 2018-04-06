@@ -16,6 +16,7 @@
       .nav-link= link_to "All Events", all_path
       .nav-link= link_to "Leaderboard", leaderboard_path
       .nav-link= link_to "About the Program", about_path
+      .nav-link= link_to "User Profiles", users_path
       -if user_signed_in?
         .nav-link= link_to "#{current_user.name}", user_path(current_user)
         .nav-link= link_to "Sign out", destroy_user_session_path, :method => :delete

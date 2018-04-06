@@ -27,7 +27,7 @@
     %tbody
       -@user.registrees.each do |p|
         %tr.registree
-          -if !summary_submitted?(@user,p.event.occurrences.next)
+          -if !summary_submitted?(@user,p.event.occurrences.next) #this is broken 
             %td.title= link_to "#{p.event.title}", event_path(p.event)
             %td.date_time= "#{p.event.occurrences.next.date_time.try(:to_formatted_s, :custom_long_ordinal)}"
             %td.location= "#{p.event.location}"
