@@ -26,7 +26,7 @@ Feature: View attendee
 
       Scenario: Submiting a Summary for an event
           Given I am signed in with provider Google
-          Given I am on the home page
+          Given I am on the events page
           When I follow "Class 1"
           Then I follow "Register for this Event"
           Then I should see "You are now registered for the event Class 1"
@@ -40,4 +40,3 @@ Feature: View attendee
           And I should see "Summary created for 'Class 1'"
           When I follow "View Event Summary"
           Then I should see "Summary for Event Class 1"
-          

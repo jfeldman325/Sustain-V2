@@ -14,6 +14,15 @@ $color-background-0: #FFFFFF;
   font-style: normal;
 }
 
+.tablecontents {
+  text-align: center;
+}
+
+.tierheader {
+  text-align: center;
+  padding: 20px;
+}
+
 body{
   font-family:Garamond, Georgia, serif;
   background-color: $color-background-0;
@@ -31,7 +40,26 @@ body{
     @include fonty(15pt);
   }
 
+  .col1 {
+  width: 50%;
+  }
 
+  .col2 {
+  width: 50%;
+  }
+
+  .col3 {
+    width: 50%;
+  }
+
+  th {
+    text-align: center;
+  }
+
+  .table-responsive {
+    width: 60%;
+    margin-left: 20%;
+  }
 
   .profileheader{
     color: $color-font-0;

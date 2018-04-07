@@ -110,6 +110,26 @@ Then /^(?:|I )should see "([^"]*)"$/ do |text|
   end
 end
 
+Then /^I should see some general information about the passport$/ do
+  if page.respond_to? :should
+    page.should have_content("Pumilio")
+  else
+    assert page.has_content?("Pumilio")
+  end
+end
+
+Then /^I should see links to other areas of the site$/ do
+  if page.respond_to? :should
+    page.should have_content("Events")
+    page.should have_content("Leaderboard")
+    page.should have_content("About")
+  else
+    assert page.has_content?("Events")
+    assert page.has_content?("Leaderboard")
+    assert page.has_content?("About")
+  end
+end
+
 Then /^(?:|I )should see the image "([^']*)"$/ do |image|
   image = all('.image')
   image.each do |x|

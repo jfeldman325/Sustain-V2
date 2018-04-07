@@ -1,8 +1,13 @@
 #main.container
-  %h3 All Events:
+  %h3.header.text-center Events
+
+  -if check_admin
+    %div
+    %t= link_to "Add New Event", new_event_path
+    %t= link_to "View All Users", users_path
 
   %h4 Recurring Events:
-  %table.table.table-responsive.table-bordered
+  %table.table.table-responsive-lg.table-bordered
     %thead.thead-light
       %tr
         %th Title
