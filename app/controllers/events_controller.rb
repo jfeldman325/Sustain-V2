@@ -6,6 +6,19 @@ class EventsController < ApplicationController
   def index
     @events_recurring = Event.where(recurring: true).upcoming
     @events_nonrecurring = Event.where(recurring: false).upcoming
+    sort_term = nil
+    case params[:sort_by]
+    when "Date"
+      sort_term = :date_time
+    when "Points"
+      sort_term = :points
+    else
+      sort_term = nil
+    end
+    if !sort_term.nil?
+      @events_recurring = @events_recurring.order(sort_term)
+      @events_nonrecurring = @events_nonrecurring.order(sort_term)
+    end
   end
 
   def show

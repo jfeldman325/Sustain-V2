@@ -5,7 +5,9 @@
     %div
     %t= link_to "Add New Event", new_event_path
     %t= link_to "View All Users", users_path
-
+  = form_tag events_path, :method => :get do |form|
+    = select_tag "sort_by", options_for_select(["Points", "Date"])
+    = submit_tag "Sort" 
   %h4 Recurring Events:
   %table.table.table-responsive.table-bordered
     %thead.thead-light
