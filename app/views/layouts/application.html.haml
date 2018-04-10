@@ -2,7 +2,7 @@
 %html
   %head
     %meta{:content => "text/html; charset=UTF-8", "http-equiv" => "Content-Type"}/
-    %title Colgate Sustainability Passport Program
+    %title Colgate Sustainability
     = csrf_meta_tags
     = stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload'
     = javascript_include_tag 'application', 'data-turbolinks-track': 'reload'
@@ -33,7 +33,7 @@
       %div.footer.text-center
         %f.main Colgate Sustainability Passport Program
         %br
-        %f= link_to "Home", events_path, {:class => "text-white"}
+        %f= link_to "Home", root_path, {:class => "text-white"}
         %f.text-white •
         %f= link_to "About Us", about_path, {:class => "text-white"}
         %f.text-white •
