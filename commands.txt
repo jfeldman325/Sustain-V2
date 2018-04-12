@@ -3,3 +3,7 @@ Generating
 rails generate model Meeting title:string location:string description:string points:integer date:datetime image:attachment
 
 rails generate model Person first_name:string last_name:string admin:boolean points:integer image:attachment
+
+rails generate controller Person index show new create edit update destroy about
+
+rails generate controller Meeting index show new create edit update destroy about
