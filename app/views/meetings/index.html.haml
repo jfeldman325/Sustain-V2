@@ -9,7 +9,8 @@
     %t= link_to "Add New Event", new_event_path
     %t= link_to "View All Users", users_path
 
-  = form_tag meetings_path, :method => :get do |form|
+  -# Need to have checkbox to allow sorting
+  -#= form_tag meetings_path, :method => :get do |form|
     = select_tag "sort_by", options_for_select(["Points", "Date"])
     = submit_tag "Sort"
 
