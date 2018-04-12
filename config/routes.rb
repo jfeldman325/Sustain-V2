@@ -1,37 +1,5 @@
 Rails.application.routes.draw do
 
-  get 'meeting/index'
-
-  get 'meeting/show'
-
-  get 'meeting/new'
-
-  get 'meeting/create'
-
-  get 'meeting/edit'
-
-  get 'meeting/update'
-
-  get 'meeting/destroy'
-
-  get 'meeting/about'
-
-  get 'person/index'
-
-  get 'person/show'
-
-  get 'person/new'
-
-  get 'person/create'
-
-  get 'person/edit'
-
-  get 'person/update'
-
-  get 'person/destroy'
-
-  get 'person/about'
-
   # get "/about" => 'events#about'
   # get "/all" => 'events#all'
   # get "/leaderboard" => 'users#leaderboard'
