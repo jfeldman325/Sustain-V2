@@ -7,3 +7,5 @@ rails generate model Person first_name:string last_name:string admin:boolean poi
 rails generate controller People index show new create edit update destroy about
 
 rails generate controller Meetings index show new create edit update destroy about
+
+rails generate migration AddRoleToPeople role:string

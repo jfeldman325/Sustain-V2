@@ -49,9 +49,9 @@ eventD = Meeting.create!(
 
 Person.delete_all
 
-Person.create!(first_name: "First", last_name: "User", points: 8)
-Person.create!(first_name: "Test", last_name: "User", points: 8)
-Person.create!(first_name: "Last", last_name: "User", points: 8)
+Person.create!(first_name: "First", last_name: "User", points: 8, role: "Professor")
+Person.create!(first_name: "Test", last_name: "User", points: 8, role: "Student")
+Person.create!(first_name: "Last", last_name: "User", points: 8, role: "TA")
 
 
 #------------------------------------ new code--------------------------------------
