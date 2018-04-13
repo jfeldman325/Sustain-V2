@@ -30,9 +30,6 @@ class MeetingsController < ApplicationController
     @meeting = Meeting.find(id)
   end
 
-  def update
-  end
-
   def destroy
   end
 

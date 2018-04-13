@@ -1,2 +1,17 @@
-%h1 People#index
-%p Find me in app/views/people/index.html.haml
+#main.container
+  %h3 All Users:
+  %table.table.table-responsive.table-bordered
+    %thead.thead-light
+      %tr
+        %th Name
+        -#%th Email
+        -#%th Classification
+        %th Total Points Earned
+
+    %tbody
+      -@people.each do |p|
+        %tr.eventbody
+          %td= link_to "#{p.first_name} #{p.last_name}", person_path(p.id)
+          -#%td= "#{p.email}"
+          -#%td= "#{p.classification}"
+          %td= "#{p.points}"
