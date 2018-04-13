@@ -30,7 +30,26 @@ class MeetingsController < ApplicationController
     @meeting = Meeting.find(id)
   end
 
+  def update
+    id = params[:id]
+    @meetings = Meeting.find(id)
+
+    @meeting.update(create_update_params)
+    if @meeting.save
+      flash[:notice] = "Event #{@meeting.title} updated"
+      redirect_to meetings_path and return
+    else
+      flash[:error] = "Error updating event"
+      redirect_to edit_event_path(@meeting) and return
+    end
+    #render :action => 'edit'
+  end
+
   def destroy
+    @meeting = Meeting.find(params[:id])
+    @meeting.destroy
+    flash[:notice] = "Event #{@meeting.title} deleted"
+    redirect_to meetings_path
   end
 
   def about
