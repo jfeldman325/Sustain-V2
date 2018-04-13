@@ -36,6 +36,7 @@ Rails.application.routes.draw do
   # get "/all" => 'events#all'
   # get "/leaderboard" => 'users#leaderboard'
   get "/contact" => 'main#contact'
+  get "/pending" => 'main#pending'
 
   # devise_for :users, controllers: { omniauth_callbacks: 'omniauth_callbacks' }
   # devise_scope :user do

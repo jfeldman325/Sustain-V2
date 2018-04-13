@@ -4,4 +4,8 @@ class MainController < ApplicationController
 
   def contact
   end
+
+  def pending
+  end
+
 end

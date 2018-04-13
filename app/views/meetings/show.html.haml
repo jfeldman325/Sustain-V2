@@ -14,9 +14,9 @@
 
   %br
 
-  %p Register for this Event
+  %p= link_to "Register for this Event", pending_path
   -#%p=link_to 'Register for this Event', event_registrees_path(@event),:method => :post
-  %p See who is registered
+  %p= link_to "See Who is Registered", pending_path
   -#%p=link_to "View Registrees", event_registrees_path(@event)
   -#if check_admin
     %p=link_to 'Edit event details', edit_event_path(@event)
