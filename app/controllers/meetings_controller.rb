@@ -32,7 +32,7 @@ class MeetingsController < ApplicationController
 
   def update
     id = params[:id]
-    @meetings = Meeting.find(id)
+    @meeting = Meeting.find(id)
 
     @meeting.update(create_update_params)
     if @meeting.save

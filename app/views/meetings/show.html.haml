@@ -25,3 +25,5 @@
   %p= link_to 'Back to Events', meetings_path
 
   %p= link_to 'Edit this Event', edit_meeting_path
+
+  %p= link_to 'Delete this Event', meeting_path(@meeting), :method => :delete
