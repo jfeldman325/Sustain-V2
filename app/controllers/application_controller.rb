@@ -1,5 +1,11 @@
 class ApplicationController < ActionController::Base
+
   # protect_from_forgery with: :exception
+  helper_method :current_person
+
+  def current_person
+    @current_person ||= Person.find(session[:user_id]) if session[:user_id]
+  end
   # before_action :check_profile
   # skip_before_action :check_profile, only: [:destroy]
   #

@@ -49,6 +49,10 @@ Rails.application.routes.draw do
   resources :people
   resources :meetings
   root to: 'main#general'
+  # get 'auth/:provider/callback', to: 'people#login'
+  # get 'auth/failure', to: redirect('/')
+  get 'signout', to: 'people#logout', as: 'signout'
+  devise_for :people, controllers: { omniauth_callbacks: 'people' }
   #root to: 'meetings#index'
 
   # resources :events do
