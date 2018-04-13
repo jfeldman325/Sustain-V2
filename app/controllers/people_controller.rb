@@ -1,8 +1,12 @@
 class PeopleController < ApplicationController
   def index
+    @people = Person.all
   end
 
   def show
+    id = params[:id]
+    @person = Person.find(id)
+    #@signed_in = current_user == nil ? false : current_user.id == @user.id.to_i
   end
 
   def new

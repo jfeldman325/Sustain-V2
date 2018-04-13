@@ -32,7 +32,7 @@ Rails.application.routes.draw do
   #
   # get 'people/about'
 
-  get "/about" => 'events#about'
+  get "/about" => 'meetings#about'
   # get "/all" => 'events#all'
   # get "/leaderboard" => 'users#leaderboard'
   get "/contact" => 'users#contact'
