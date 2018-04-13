@@ -6,10 +6,6 @@ class CreatePeople < ActiveRecord::Migration[5.1]
       t.boolean :admin, :default => false
       t.integer :points
       t.attachment :image
-      t.provider
-      t.uid
-      t.oauth_token
-      t.oauth_expires_at :datetime
 
       t.timestamps
     end
