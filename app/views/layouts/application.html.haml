@@ -9,13 +9,15 @@
     = favicon_link_tag 'favicon.ico'
   %body
     #header
-    %h3.title Colgate Sustainability Passport Program
-    %div.pull_right
+    .login
       -if current_person
         =  "Signed in as #{current_person.first_name} #{current_person.last_name}"
+        %br
         =link_to "Sign out", signout_path, id:"sign_out"
       -else
         =link_to "Sign in with Google",person_google_oauth2_omniauth_authorize_path
+    %h3.title Colgate Sustainability Passport Program
+
     %div.navbar.navbar-light.bg-light
       %a.navbar-brand{ :href => root_path}= image_tag("sus_logo.jpg", :height => 50)
       = link_to "All Events", meetings_path, class: "nav-link nav-item"
