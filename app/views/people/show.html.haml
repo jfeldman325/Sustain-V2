@@ -3,7 +3,7 @@
 #main.container
   -if @person.admin
     %span.small-text-span Admin
-  -#%td.image= image_tag @person.image.url
+  %td.image= image_tag @person.image.url
   %h2.strong #{@person.first_name} #{@person.last_name}
   .row
     -#%strong.col-sm-3 Email Address: #{@user.email}

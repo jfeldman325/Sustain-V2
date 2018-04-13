@@ -3,8 +3,7 @@
 
 #main.container
   %h1.header #{@meeting.title}
-  %td Event Image Here
-  -#%td.image= image_tag @meeting.image.url
+  %td.image= image_tag @meeting.image.url
   %h5.dl
     %h5.dl Date and Time: #{@meeting.date.try(:to_formatted_s, :custom_long_ordinal)}
 

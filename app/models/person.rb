@@ -1,6 +1,9 @@
 class Person < ApplicationRecord
   devise :omniauthable
 
+  has_attached_file :image, :styles=> {:medium => "300x300>", :thumb => "100x100>" }, :default_url => "no_photo.png"
+  validates_attachment :image, :content_type => {:content_type => ["image/jpeg", "image/png", "image/gif"]}
+
 
   def self.from_omniauth(auth)
     where(provider: auth.provider, uid: auth.uid).first_or_initialize.tap do |person|
