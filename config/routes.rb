@@ -34,7 +34,7 @@ Rails.application.routes.draw do
 
   get "/about" => 'meetings#about'
   # get "/all" => 'events#all'
-  # get "/leaderboard" => 'users#leaderboard'
+  get "/leaderboard" => 'people#leaderboard'
   get "/contact" => 'main#contact'
   get "/pending" => 'main#pending'
 

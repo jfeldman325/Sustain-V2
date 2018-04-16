@@ -9,6 +9,12 @@ class PeopleController < ApplicationController
     #@signed_in = current_user == nil ? false : current_user.id == @user.id.to_i
   end
 
+  def leaderboard
+    @champions = Person.rank1
+    @advocates = Person.rank2
+    @associates = Person.rank3
+  end
+
   def new
   end
 
