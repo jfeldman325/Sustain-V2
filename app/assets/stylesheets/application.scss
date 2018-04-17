@@ -64,6 +64,9 @@ body{
   .navbar{
       margin: 0 20px;
       border-radius: 5px;
+      top: 0px;
+      position: fixed;
+      width: 100%;
   }
 
   .main {
