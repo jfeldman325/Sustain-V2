@@ -44,6 +44,7 @@
 body{
   font-family:Garamond, Georgia, serif;
   background-color: $color-background-0;
+  background-image: url("https://assets.forwardcdn.com/images/cropped/colgate-hill-panorama-2-1501084567.jpg");
   margin-bottom: 100px;
   margin-top: 10px;
   position: relative;
@@ -65,6 +66,7 @@ body{
       margin: 0 20px;
       border-radius: 5px;
       top: 0px;
+      left: 0px;
       position: fixed;
       width: 100%;
   }
