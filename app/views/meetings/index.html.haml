@@ -1,25 +1,13 @@
--# %h1 Meetings#index
--# %p Find me in app/views/meetings/index.html.haml
-
 #main.container
-  %h3.header.text-center Events
+  %h3.header.centered Events
 
-  -#if check_admin
-    %div
-    %t= link_to "Add New Event", new_event_path
-    %t= link_to "View All Users", users_path
+  %h5.centered= link_to 'Add A New Event', new_meeting_path
 
-  -# Need to have checkbox to allow sorting
-  -#= form_tag meetings_path, :method => :get do |form|
-    = select_tag "sort_by", options_for_select(["Points", "Date"])
-    = submit_tag "Sort"
-
-  %p= link_to 'Add new Event', new_meeting_path
-
-  %h4 Meetings:
+  %br
   %table.table.table-responsive-lg.table-bordered
     %thead.thead-light
       %tr
+        %th Image
         %th Title
         %th Date and Time
         %th Location
@@ -29,8 +17,10 @@
     %tbody
       -@meetings.each do |meeting|
         %tr.eventbody
-          %td.title= link_to "#{meeting.title}", meeting_path(meeting)
-          %td.date_time= "#{meeting.date.try(:to_formatted_s, :custom_long_ordinal)}"
-          %td.location= "#{meeting.location}"
-          %td.points= "#{meeting.points}"
-          %td.description= truncate(meeting.description, length: 60)
+          %td= image_tag(meeting.image.url, size: "100x100")
+          %td.header= link_to "#{meeting.title}", meeting_path(meeting)
+          %td.content= "#{meeting.date.try(:to_formatted_s, :custom_long_ordinal)}"
+          %td.content= "#{meeting.location}"
+          %td.content= "#{meeting.points}"
+          %td.content= truncate(meeting.description, length: 250)
+    %br

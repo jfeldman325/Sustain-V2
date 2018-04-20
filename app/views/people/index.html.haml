@@ -1,17 +1,21 @@
 #main.container
-  %h3 All Users:
+  %br
+  %h3.centered All Users
+
+  %br
   %table.table.table-responsive.table-bordered
     %thead.thead-light
       %tr
+        %th Image
         %th Name
-        -#%th Email
-        -#%th Classification
+        %th Role
         %th Total Points Earned
 
     %tbody
       -@people.each do |p|
         %tr.eventbody
+          %td= image_tag(p.image.url, size: "100x100")
           %td= link_to "#{p.first_name} #{p.last_name}", person_path(p.id)
-          -#%td= "#{p.email}"
-          -#%td= "#{p.classification}"
-          %td= "#{p.points}"
+          %td.centered= "#{p.role}"
+          %td.centered= "#{p.points}"
+  %br
