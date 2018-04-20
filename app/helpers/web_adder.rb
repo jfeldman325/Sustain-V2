@@ -23,15 +23,14 @@ module WebAdder
       end
 
       @E.date=DateTime.parse(page.search(".dtstart").text)
-      # @E.recurring=false
+
       @E.points=1
 
       @E.description= page.search(".description").text
 
-      if !Meeting.where(date:@E.date).exists?
+      if !Meeting.where(date:@E.date,location:@E.location).exists?
         @E.save()
       end
-
 
     end
 
