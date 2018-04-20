@@ -59,8 +59,9 @@ class PeopleController < ApplicationController
 
   def failure
     flash[:error]= "Error logging in, please try again."
-    print request.env["omniauth.auth"]
-    redirect_to root_path
+     if !request.env["omniauth.auth"].nil?
+       redirect_to google_oauth2
+     end
   end
 
   def logout

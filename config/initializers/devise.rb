@@ -251,5 +251,5 @@ Devise.setup do |config|
   # Add a new OmniAuth provider. Check the wiki for more information on setting
   # up on your models and hooks.
   require 'omniauth-google-oauth2'
-  config.omniauth :google_oauth2, "708537423624-jtoliutrn3pav4qarn98i99s8jnqrmse.apps.googleusercontent.com", "Zsclyjb9Vqr7cKL0Ix1k_uWF", {provider_ignores_state: true, access_type: "offline", approval_prompt: "" }
+   config.omniauth :google_oauth2, "734191667701-kq6akrjn11j5rfgomjuku0vp3dbmob8r.apps.googleusercontent.com", "v-2iW-q9xrGAFB3p3WnsmHuB", {provider_ignores_state: true, access_type: "offline", approval_prompt: "" }
 end
