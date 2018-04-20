@@ -41,6 +41,19 @@
   background-color: #4C7401;
 }
 
+.nav-link {
+  color: #4C7401;
+}
+
+.navbar{
+    margin: 0 20px;
+    border-radius: 5px;
+    top: 0px;
+    left: 0px;
+    position: fixed;
+    width: 100%;
+}
+
 body{
   font-family:Garamond, Georgia, serif;
   background-color: $color-background-0;
@@ -48,6 +61,7 @@ body{
   margin-bottom: 100px;
   margin-top: 10px;
   position: relative;
+  opacity: 0.9;
 
 
   .sign_in {
@@ -58,17 +72,10 @@ body{
     color: #022015;
   }
   .title{
-    color: #4C7401;
+    color: #5DBF01;
     line-height: 100%;
     text-align: center;
-  }
-  .navbar{
-      margin: 0 20px;
-      border-radius: 5px;
-      top: 0px;
-      left: 0px;
-      position: fixed;
-      width: 100%;
+    font-size: 14pt;
   }
 
   .main {

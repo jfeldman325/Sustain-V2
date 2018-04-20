@@ -11,8 +11,8 @@
   %h5.dl About #{@event.title}:
   %h6.dd #{@event.description}
 
-  %p=link_to 'Register for this Event', event_registrees_path(@event),:method => :post
-  %p=link_to "View Registrees", event_registrees_path(@event)
+  %p=link_to 'Register for this Event', event_registrees_path(@event),:method => :post, class: "nav-link nav-item"
+  %p=link_to "View Registrees", event_registrees_path(@event), class: "nav-link nav-item"
   -if check_admin
-    %p=link_to 'Edit event details', edit_event_path(@event)
-    %p=link_to 'Delete event', event_path(@event), :method => :delete
+    %p=link_to 'Edit event details', edit_event_path(@event), class: "nav-link nav-item"
+    %p=link_to 'Delete event', event_path(@event), :method => :delete, class: "nav-link nav-item"
