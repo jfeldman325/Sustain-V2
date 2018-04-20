@@ -6,7 +6,6 @@ class PeopleController < ApplicationController
   def show
     id = params[:id]
     @person = Person.find(id)
-    #@signed_in = current_user == nil ? false : current_user.id == @user.id.to_i
   end
 
   def leaderboard
@@ -23,10 +22,6 @@ class PeopleController < ApplicationController
 
   def edit
     id = params[:id]
-    # if current_user.id != id.to_i
-    #   flash[:notice] = "You cannot edit some one else's profile!"
-    #   redirect_to action: "show", id: id
-    # end
     @person = Person.find(id)
     @roles = [["Student", "Student"], ["Faculty", "Faculty"], ["Staff", "Staff"]]
   end
@@ -37,7 +32,7 @@ class PeopleController < ApplicationController
 
     @person.update create_update_params
     if @person.save
-      flash[:notice] = "#{@person.name} has been updated"
+      flash[:notice] = "#{@person.first_name} #{@person.last_name} has been updated"
       redirect_to person_path @person
     else
       flash[:error] = "Error updating user"
@@ -71,7 +66,6 @@ class PeopleController < ApplicationController
 
   private
   def create_update_params
-    # TODO add :role to permited. add role to people migration
-    params.require(:person).permit(:first_name, :last_name, :admin, :image)
+    params.require(:person).permit(:first_name, :last_name, :admin, :image, :role)
   end
 end
