@@ -1,9 +1,12 @@
+include WebAdder
 class MeetingsController < ApplicationController
   def index
+    WebAdder.load_events
     @meetings = Meeting.all
   end
 
   def show
+
     id = params[:id]
     @meeting = Meeting.find(id)
   end

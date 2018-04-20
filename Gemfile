@@ -11,6 +11,8 @@ gem 'rails', '~> 5.1.4'
 gem 'mongoid', '~>7.0.0'
 gem 'omniauth'
 gem "omniauth-google-oauth2"
+gem 'nokogirl'
+gem 'mechanize'
 # Use Puma as the app server
 gem 'puma', '~> 3.7'
 # Use SCSS for stylesheets
