@@ -1,0 +1,28 @@
+-# %h1 Meetings#show
+-# %p Find me in app/views/meetings/show.html.haml
+
+#main.container
+  %h1.header #{@meeting.title}
+  %td.image= image_tag @meeting.image.url
+  %h5.dl
+    %h5.dl Date and Time: #{@meeting.date.try(:to_formatted_s, :custom_long_ordinal)}
+
+  %h5.dl Location: #{@meeting.location}
+  %h5.dl Points Value: #{@meeting.points}
+  %h5.dl About #{@meeting.title}:
+  %h6.dd #{@meeting.description}
+
+  %br
+
+  %p= link_to "Register for this Event", pending_path
+  -#%p=link_to 'Register for this Event', event_registrees_path(@event),:method => :post
+  %p= link_to "See Who is Registered", pending_path
+  -#%p=link_to "View Registrees", event_registrees_path(@event)
+  -#if check_admin
+    %p=link_to 'Edit event details', edit_event_path(@event)
+    %p=link_to 'Delete event', event_path(@event), :method => :delete
+  %p= link_to 'Back to Events', meetings_path
+
+  %p= link_to 'Edit this Event', edit_meeting_path
+
+  %p= link_to 'Delete this Event', meeting_path(@meeting), :method => :delete

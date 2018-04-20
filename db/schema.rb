@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20171208043858) do
+ActiveRecord::Schema.define(version: 20180413155927) do
 
   create_table "attendees", force: :cascade do |t|
     t.integer "user_id"
@@ -34,11 +34,43 @@ ActiveRecord::Schema.define(version: 20171208043858) do
     t.datetime "image_updated_at"
   end
 
+  create_table "meetings", force: :cascade do |t|
+    t.string "title"
+    t.string "location"
+    t.string "description"
+    t.integer "points"
+    t.datetime "date"
+    t.string "image_file_name"
+    t.string "image_content_type"
+    t.integer "image_file_size"
+    t.datetime "image_updated_at"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
   create_table "occurrences", force: :cascade do |t|
     t.datetime "date_time"
     t.integer "event_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+  end
+
+  create_table "people", force: :cascade do |t|
+    t.string "first_name"
+    t.string "last_name"
+    t.boolean "admin", default: false
+    t.integer "points"
+    t.string "image_file_name"
+    t.string "image_content_type"
+    t.integer "image_file_size"
+    t.datetime "image_updated_at"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.string "provider"
+    t.string "uid"
+    t.string "oauth_token"
+    t.datetime "oauth_expires_at"
+    t.string "role"
   end
 
   create_table "registrees", force: :cascade do |t|

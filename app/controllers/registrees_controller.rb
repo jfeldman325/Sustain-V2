@@ -1,5 +1,5 @@
 class RegistreesController < ApplicationController
-    before_action :has_event,:authenticate_user!
+    # before_action :has_event,:authenticate_user!
     protected
     def has_event
       #  unless @current_user
