@@ -7,43 +7,28 @@
     = stylesheet_link_tag    'application', media: 'all'
     = javascript_include_tag 'application', 'data-turbolinks-track': 'reload'
     = favicon_link_tag 'favicon.ico'
+
   %div.navbar.bg-white
     %a.navbar-brand{ :href => root_path}= image_tag("sus_logo.jpg", :height => 50)
-    = link_to "All Events", events_path, class: "nav-link nav-item"
+    = link_to "All Events", meetings_path, class: "nav-link nav-item"
+    = link_to "All People", people_path, class: "nav-link nav-item"
     = link_to "Leaderboard", leaderboard_path, class: "nav-link nav-item"
-    = link_to "About the Program", about_path, class: "nav-link nav-item"
-    -if user_signed_in?
-      .nav-link= link_to "#{current_user.name}", user_path(current_user), class: "nav-link nav-item"
-      .nav-link= link_to "Sign out", destroy_user_session_path, :method => :delete, class: "nav-link nav-item"
+    = link_to "About Us", about_path, class: "nav-link nav-item"
+
+    -# TODO Should appear above nav-bar
+    -if current_person
+      =  "Signed in as #{current_person.first_name} #{current_person.last_name}"
+      %br
+      =link_to "Sign out", signout_path, id:"sign_out"
     -else
-      .nav-link= link_to "Sign in with Google", user_google_oauth2_omniauth_authorize_path, class: "nav-link nav-item"
+      =link_to "Sign in with Google",person_google_oauth2_omniauth_authorize_path
+
   %body
-    #header
-    .login
-      -if current_person
-        =  "Signed in as #{current_person.first_name} #{current_person.last_name}"
-        %br
-        =link_to "Sign out", signout_path, id:"sign_out"
-      -else
-        =link_to "Sign in with Google",person_google_oauth2_omniauth_authorize_path
-    %h3.title Colgate Sustainability Passport Program
-
-    %div.navbar.navbar-light.bg-light
-      %a.navbar-brand{ :href => root_path}= image_tag("sus_logo.jpg", :height => 50)
-      = link_to "All Events", meetings_path, class: "nav-link nav-item"
-      .nav-link= link_to "All People", people_path
-      .nav-link= link_to "Leaderboard", leaderboard_path
-      .nav-link= link_to "About the Program", about_path
+    %br
+    %br
+    %br
 
 
-
-
-
-
-      -#if user_signed_in?
-        -# do domethins
-      -#else
-        -# do somethins else
     -if flash[:notice] || flash[:error] || flash[:alert]
       .flash
         -if flash[:notice]
