@@ -8,6 +8,9 @@ end
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '~> 5.1.4'
 
+gem 'mongoid', '~>7.0.0'
+gem 'omniauth'
+gem "omniauth-google-oauth2"
 # Use Puma as the app server
 gem 'puma', '~> 3.7'
 # Use SCSS for stylesheets
@@ -35,10 +38,11 @@ gem 'haml'
 gem 'haml-rails'
 
 gem 'paperclip', '~> 5.2.0'
+gem 'octicons_helper'
 
 # User profile gems
 gem 'devise'
-gem 'omniauth-google-oauth2'
+
 
 #Date validator
 gem 'date_validator', '~> 0.9.0'

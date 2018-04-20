@@ -1,5 +1,6 @@
 class UsersController < ApplicationController
-  skip_before_action :check_profile, only: [:edit, :update]
+  # skip_before_action :check_profile, only: [:edit, :update]
+
   def show
       id = params[:id]
       @user = User.find(id)

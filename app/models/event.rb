@@ -2,6 +2,7 @@ class Event < ApplicationRecord
     has_many :registrees
     has_many :occurrences
     has_many :users, :through => :registrees
+    belongs_to :people
 
     accepts_nested_attributes_for :occurrences, :allow_destroy => true
 

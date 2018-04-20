@@ -28,7 +28,6 @@ class User < ApplicationRecord
   end
 
   def find_attendee(occurrence)
-    attendee = Attendee.where("user_id = ? AND occurrence_id = ?",self.id,occurrence.id).first
-    return attendee
+    Attendee.where("user_id = ? AND occurrence_id = ?",self.id,occurrence.id).first
   end
 end
