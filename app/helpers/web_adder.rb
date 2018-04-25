@@ -2,7 +2,7 @@ module WebAdder
   require 'rubygems'
   require 'mechanize'
   require 'open-uri'
-  require 'nokogirl'
+  require 'nokogiri'
 
   #require 'mechanize'
 
