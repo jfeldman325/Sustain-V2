@@ -19,9 +19,9 @@
     -if current_person
       =  "Signed in as #{current_person.first_name} #{current_person.last_name}"
       %br
-      =link_to "Sign out", signout_path, id:"sign_out"
+      =link_to "Sign out", signout_path, id:"sign_out", class: "nav-link nav-item"
     -else
-      =link_to "Sign in with Google",person_google_oauth2_omniauth_authorize_path
+      =link_to "Sign in with Google",person_google_oauth2_omniauth_authorize_path, class: "nav-link nav-item"
 
   %body
     %br
