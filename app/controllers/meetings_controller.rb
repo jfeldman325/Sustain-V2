@@ -25,7 +25,6 @@ class MeetingsController < ApplicationController
       flash[:error] = "Error adding event"
       redirect_to new_meeting_path(@meeting) and return
     end
-    #render :action => 'new'
   end
 
   def edit

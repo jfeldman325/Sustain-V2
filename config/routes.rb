@@ -7,6 +7,7 @@ Rails.application.routes.draw do
 
   resources :people
   resources :meetings
+  resources :registrations
   root to: 'main#general'
 
   get 'signout', to: 'people#logout', as: 'signout'

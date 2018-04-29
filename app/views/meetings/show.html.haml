@@ -3,7 +3,7 @@
   %h3.header #{@meeting.title}
 
   %p= image_tag @meeting.image.url
-  
+
   %h5 #{@meeting.date.try(:to_formatted_s, :custom_long_ordinal)}
   %h5 Location: #{@meeting.location}
   %h5.dl Points Value: #{@meeting.points}
@@ -13,7 +13,7 @@
 
   %br
 
-  %p= link_to "Register for this Event", pending_path
+  %p= link_to "Register for this Event", new_registration_path({:meeting_id => @meeting.id})
   %p= link_to "See Who is Registered", pending_path
   %p= link_to 'Back to Events', meetings_path
   %p= link_to 'Edit this Event', edit_meeting_path

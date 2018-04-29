@@ -32,11 +32,11 @@
     -if flash[:notice] || flash[:error] || flash[:alert]
       .flash
         -if flash[:notice]
-          .alert.alert-info= flash[:notice]
+          .alert.alert-info.centered= flash[:notice]
         -if flash[:error]
-          .alert.alert-danger= flash[:error]
+          .alert.alert-danger.centred= flash[:error]
         -if flash[:alert]
-          .alert.alert-warning= flash[:alert]
+          .alert.alert-warning.centred= flash[:alert]
     = yield
     %footer.fixed-bottom.green-background
       %div.footer.text-center
