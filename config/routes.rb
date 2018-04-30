@@ -4,6 +4,7 @@ Rails.application.routes.draw do
   get "/leaderboard" => 'people#leaderboard'
   get "/contact" => 'main#contact'
   get "/pending" => 'main#pending'
+  get "/my_meetings" => 'people#my_meetings'
 
   resources :people
   resources :meetings
