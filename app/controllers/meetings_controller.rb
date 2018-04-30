@@ -44,7 +44,6 @@ class MeetingsController < ApplicationController
       flash[:error] = "Error updating event"
       redirect_to edit_event_path(@meeting) and return
     end
-    #render :action => 'edit'
   end
 
   def destroy
@@ -54,7 +53,9 @@ class MeetingsController < ApplicationController
     redirect_to meetings_path
   end
 
-  def about
+  def who_registered
+    @meeting = Meeting.find(params[:meeting_id])
+    @people = @meeting.people
   end
 
   private

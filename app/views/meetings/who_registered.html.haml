@@ -1,0 +1,25 @@
+#main.container
+  %br
+  %h4.centered People Registered for
+  %h4.centered #{@meeting.title}
+  %br
+
+  %br
+  %table.table.table-responsive.table-bordered
+    %thead.thead-light
+      %tr
+        %th Image
+        %th Name
+        %th Role
+        %th Total Points Earned
+
+    %tbody
+      -@people.each do |p|
+        %tr.eventbody
+          %td= image_tag(p.image.url, size: "75x75")
+          %td= link_to "#{p.first_name} #{p.last_name}", person_path(p.id)
+          %td.centered= "#{p.role}"
+          %td.centered= "#{p.points}"
+  %br
+  %p= link_to "Back to Event", meeting_path(@meeting)
+  %br

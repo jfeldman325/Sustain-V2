@@ -14,7 +14,7 @@
   %br
 
   %p= link_to "Register for this Event", new_registration_path({:meeting_id => @meeting.id})
-  %p= link_to "See Who is Registered", pending_path
+  %p= link_to "See Who is Registered", who_registered_path({:meeting_id => @meeting.id})
   %p= link_to 'Back to Events', meetings_path
   %p= link_to 'Edit this Event', edit_meeting_path
   %p= link_to 'Delete this Event', meeting_path(@meeting), :method => :delete
