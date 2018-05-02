@@ -2,7 +2,7 @@
 
   %h3.header #{@meeting.title}
 
-  %p= image_tag @meeting.image.url
+  %p.centered= image_tag @meeting.image.url
 
   %h5 #{@meeting.date.try(:to_formatted_s, :custom_long_ordinal)}
   %h5 Location: #{@meeting.location}

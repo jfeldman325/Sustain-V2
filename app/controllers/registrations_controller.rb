@@ -21,6 +21,9 @@ class RegistrationsController < ApplicationController
     if Registration.exists?(@person, @meeting)
       flash[:notice] = "You are already registered for #{@meeting.title}"
       redirect_to meeting_path(@meeting.id) and return
+    elsif @meeting.is_past?
+      flash[:notice] = "You cannot register for a past event. Please see our upcoming events"
+      redirect_to meeting_path(@meeting.id) and return
     end
 
     #update points
