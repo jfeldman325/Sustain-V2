@@ -14,11 +14,21 @@ class RegistrationsController < ApplicationController
 
   def create
     update_params = create_update_params
-    @meeting = Meeting.find(update_params[:meeting_id]);
+    @person = Person.find(session[:user_id])
+    @meeting = Meeting.find(update_params[:meeting_id])
     @registration = Registration.new(update_params)
 
-    if @registration.save
-      flash[:notice] = "Successfully registred for #{@meeting.title}"
+    if Registration.exists?(@person, @meeting)
+      flash[:notice] = "You are already registered for #{@meeting.title}"
+      redirect_to meeting_path(@meeting.id) and return
+    end
+
+    #update points
+    update_points(@person, @meeting)
+
+    if @registration.save && @person.save
+      flash[:notice] = "Successfully registered for #{@meeting.title}. +#{@meeting.points} Points"
+
       redirect_to meeting_path(@meeting.id) and return
     else
       flash[:error] = "Error adding event"
@@ -35,5 +45,13 @@ class RegistrationsController < ApplicationController
   private
   def create_update_params
     params.require(:registration).permit(:person_id, :meeting_id)
+  end
+
+  def update_points(person, meeting)
+    if person.points == nil
+      person.points = meeting.points
+    else
+      person.points += meeting.points
+    end
   end
 end
