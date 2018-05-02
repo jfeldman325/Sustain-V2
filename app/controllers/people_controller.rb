@@ -1,4 +1,5 @@
 class PeopleController < ApplicationController
+
   def index
     @people = Person.all
   end
@@ -43,7 +44,24 @@ class PeopleController < ApplicationController
   def destroy
   end
 
-  def about
+  def my_meetings
+    if session[:user_id] == nil
+      flash[:notice] = "Sign in to see Your Events"
+      redirect_to people_path and return
+    end
+
+    person_id = params[:person_id].to_i
+    if session[:user_id] == person_id
+      @person = Person.find(session[:user_id])
+      @meetings = @person.meetings
+
+      @upcoming_meetings = @meetings.where("date >= ?", Date.today)
+      @past_meetings = @meetings.where("date < ? ", Date.today)
+    else
+      @person = Person.find(params[:person_id])
+      flash[:alert] = "Permission Denied. Cannot access #{@person.first_name} #{@person.last_name}'s infomation."
+      redirect_to people_path and return
+    end
   end
 
   def google_oauth2
@@ -66,6 +84,6 @@ class PeopleController < ApplicationController
 
   private
   def create_update_params
-    params.require(:person).permit(:first_name, :last_name, :admin, :image, :role)
+    params.require(:person).permit(:first_name, :last_name, :admin, :image, :role, :bio)
   end
 end

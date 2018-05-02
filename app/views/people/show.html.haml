@@ -6,17 +6,18 @@
 
   .row
     -if @person.admin
-      %span.content Admin
-
-    -# TODO Update CSS styling
+      %span.col-sm-3
+        %strong Admin: true
     %strong.col-sm-3 Role: #{@person.role}
     %strong.col-sm-3 Points Earned: #{@person.points}
 
+  %strong Bio:
+  %p= @person.bio
+
+  %p= link_to "My Events", my_meetings_path({:person_id => @person.id})
   %br
-  %p= link_to "My Events", pending_path
-  %br
-  %p= link_to "Edit my Profile", edit_person_path(@person)
-  %p= link_to "Delete my Profile", pending_path
-  %br
-  %p= link_to "Back to all people", people_path
+  -if current_person && current_person.id == @person.id
+    %p= link_to "Edit my Profile", edit_person_path(@person)
+    %p= link_to "Delete my Profile", pending_path
+
   %br

@@ -8,6 +8,10 @@
       =f.text_field :title, class: "form-control"
 
     .form-group
+      =f.label :location, 'Location'
+      =f.text_field :location, class: "form-control"
+
+    .form-group
       =f.label :date, 'Date'
       =f.date_field :date
 
@@ -25,7 +29,7 @@
 
     .field
       =f.submit 'Update Event',class:"btn-success"
-      
+
   %br
   %p= link_to "Cancel", meeting_path(@meeting)
   %br

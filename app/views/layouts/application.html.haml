@@ -10,12 +10,12 @@
 
   %div.navbar.bg-white
     %a.navbar-brand{ :href => root_path}= image_tag("sus_logo.jpg", :height => 50)
-    = link_to "All Events", meetings_path, class: "nav-link nav-item"
-    = link_to "All People", people_path, class: "nav-link nav-item"
+    = link_to "Events", meetings_path, class: "nav-link nav-item"
+    = link_to "People", people_path, class: "nav-link nav-item"
     = link_to "Leaderboard", leaderboard_path, class: "nav-link nav-item"
     = link_to "About Us", about_path, class: "nav-link nav-item"
     -if current_person
-      =  "Signed in as #{current_person.first_name} #{current_person.last_name}"
+      =link_to  "Signed in as #{current_person.first_name} #{current_person.last_name}", person_path(current_person.id)
       %br
       =link_to "Sign out", signout_path, id:"sign_out", class: "nav-link nav-item"
     -else
@@ -30,11 +30,11 @@
     -if flash[:notice] || flash[:error] || flash[:alert]
       .flash
         -if flash[:notice]
-          .alert.alert-info= flash[:notice]
+          .alert.alert-info.centered= flash[:notice]
         -if flash[:error]
-          .alert.alert-danger= flash[:error]
+          .alert.alert-danger.centered= flash[:error]
         -if flash[:alert]
-          .alert.alert-warning= flash[:alert]
+          .alert.alert-warning.centered= flash[:alert]
     = yield
     %footer.fixed-bottom.green-background
       %div.footer.text-center

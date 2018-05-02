@@ -9,7 +9,8 @@
         %th Image
         %th Name
         %th Role
-        %th Total Points Earned
+        %th Total Points
+        %th Bio
 
     %tbody
       -@people.each do |p|
@@ -18,4 +19,5 @@
           %td= link_to "#{p.first_name} #{p.last_name}", person_path(p.id)
           %td.centered= "#{p.role}"
           %td.centered= "#{p.points}"
+          %td.content= truncate(p.bio, length: 150)
   %br

@@ -3,10 +3,12 @@ class MeetingsController < ApplicationController
   def index
     WebAdder.load_events
     @meetings = Meeting.all
+
+    @past_meetings = @meetings.where("date < ?", Date.today)
+    @upcoming_meetings = @meetings.where("date >= ?", Date.today)
   end
 
   def show
-
     id = params[:id]
     @meeting = Meeting.find(id)
   end
@@ -25,7 +27,6 @@ class MeetingsController < ApplicationController
       flash[:error] = "Error adding event"
       redirect_to new_meeting_path(@meeting) and return
     end
-    #render :action => 'new'
   end
 
   def edit
@@ -45,7 +46,6 @@ class MeetingsController < ApplicationController
       flash[:error] = "Error updating event"
       redirect_to edit_event_path(@meeting) and return
     end
-    #render :action => 'edit'
   end
 
   def destroy
@@ -55,11 +55,13 @@ class MeetingsController < ApplicationController
     redirect_to meetings_path
   end
 
-  def about
+  def who_registered
+    @meeting = Meeting.find(params[:meeting_id])
+    @people = @meeting.people
   end
 
   private
   def create_update_params
-    params.require(:meeting).permit(:title, :location, :location, :description, :points, :image)
+    params.require(:meeting).permit(:title, :location, :date, :description, :points, :image)
   end
 end
