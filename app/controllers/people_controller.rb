@@ -79,7 +79,7 @@ class PeopleController < ApplicationController
 
   def logout
     reset_session
-
+    print test
 
     redirect_to root_path
   end
