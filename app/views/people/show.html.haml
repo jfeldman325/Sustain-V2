@@ -16,6 +16,8 @@
 
   %p= link_to "My Events", my_meetings_path({:person_id => @person.id})
   %br
-  %p= link_to "Edit my Profile", edit_person_path(@person)
-  %p= link_to "Delete my Profile", pending_path
+  -if current_person && current_person.id == @person.id
+    %p= link_to "Edit my Profile", edit_person_path(@person)
+    %p= link_to "Delete my Profile", pending_path
+
   %br

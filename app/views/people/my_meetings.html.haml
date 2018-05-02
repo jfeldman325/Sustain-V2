@@ -51,5 +51,5 @@
             %td.content= "#{meeting.points}"
             %td.content= truncate(meeting.description, length: 150)
 
-  %p.centered= link_to "Back to My Profile", people_path(@person.id)
+  %p.centered= link_to "Back to My Profile", person_path(@person.id)
   %br
