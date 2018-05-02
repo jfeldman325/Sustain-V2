@@ -4,8 +4,8 @@ class MeetingsController < ApplicationController
     WebAdder.load_events
     @meetings = Meeting.all
 
-    @past_meetings = @meetings.where("date < ?", DateTime.now)
-    @upcoming_meetings = @meetings.where("date >= ?", DateTime.now)
+    @past_meetings = @meetings.where("date < ?", Date.today)
+    @upcoming_meetings = @meetings.where("date >= ?", Date.today)
   end
 
   def show
