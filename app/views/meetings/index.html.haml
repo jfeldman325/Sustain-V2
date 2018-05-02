@@ -1,7 +1,8 @@
 #main.container
   %h3.header.centered Events
 
-  %h5.centered= link_to 'Add A New Event', new_meeting_path
+  -if current_person && current_person.admin
+    %h5.centered= link_to 'Add A New Event', new_meeting_path
 
   %h4 Upcoming Events
 
