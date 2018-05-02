@@ -67,7 +67,7 @@ class PeopleController < ApplicationController
   def google_oauth2
     person = Person.from_omniauth(request.env["omniauth.auth"])
     session[:user_id] = person.id
-    redirect_to root_path
+    redirect_to edit_person_path :id => person.id
   end
 
   def failure
@@ -78,7 +78,9 @@ class PeopleController < ApplicationController
   end
 
   def logout
-    session[:user_id] = nil
+    reset_session
+
+
     redirect_to root_path
   end
 
