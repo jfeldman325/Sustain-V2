@@ -2,10 +2,6 @@ class Person < ApplicationRecord
   has_many :registrations
   has_many :meetings, :through => :registrations
 
-  # scope :my_meetings, -> (person_id){
-  #   Person.find(person_id).meetings
-  # }
-
   devise :omniauthable
 
   has_attached_file :image, :styles=> {:medium => "300x300>", :thumb => "100x100>" }, :default_url => "no_photo.png"

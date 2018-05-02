@@ -3,6 +3,9 @@ class MeetingsController < ApplicationController
   def index
     WebAdder.load_events
     @meetings = Meeting.all
+
+    @past_meetings = @meetings.where("date < ?", DateTime.now)
+    @upcoming_meetings = @meetings.where("date >= ?", DateTime.now)
   end
 
   def show
@@ -60,6 +63,6 @@ class MeetingsController < ApplicationController
 
   private
   def create_update_params
-    params.require(:meeting).permit(:title, :location, :location, :description, :points, :image)
+    params.require(:meeting).permit(:title, :location, :date, :description, :points, :image)
   end
 end
