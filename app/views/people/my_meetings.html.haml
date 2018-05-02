@@ -1,7 +1,34 @@
 #main.container
   %br
   %h3.centered My Events
+
   %br
+  %h4 Upcoming Events
+  -unless @upcoming_meetings.length > 0
+    %p.content= "No upcoming events."
+  -else
+    %br
+    %table.table.table-responsive-lg.table-bordered
+      %thead.thead-light
+        %tr
+          %th Title
+          %th Date and Time
+          %th Location
+          %th Points Value
+          %th Description
+
+      %tbody
+        -@upcoming_meetings.each do |meeting|
+          %tr.eventbody
+            %td.header= link_to "#{meeting.title}", meeting_path(meeting)
+            %td.content= "#{meeting.date.try(:to_formatted_s, :custom_long_ordinal)}"
+            %td.content= "#{meeting.location}"
+            %td.content= "#{meeting.points}"
+            %td.content= truncate(meeting.description, length: 150)
+      %br
+
+  %br
+  %h4 Past Events
 
   %br
   %table.table.table-responsive-lg.table-bordered
@@ -14,14 +41,13 @@
         %th Description
 
     %tbody
-      -@meetings.each do |meeting|
+      -@past_meetings.each do |meeting|
         %tr.eventbody
           %td.header= link_to "#{meeting.title}", meeting_path(meeting)
           %td.content= "#{meeting.date.try(:to_formatted_s, :custom_long_ordinal)}"
           %td.content= "#{meeting.location}"
           %td.content= "#{meeting.points}"
           %td.content= truncate(meeting.description, length: 150)
-    %br
 
   %p= link_to "Back to My Profile", people_path(@person.id)
   %br

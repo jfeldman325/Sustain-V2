@@ -54,6 +54,9 @@ class PeopleController < ApplicationController
     if session[:user_id] == person_id
       @person = Person.find(session[:user_id])
       @meetings = @person.meetings
+
+      @upcoming_meetings = @meetings.where("date >= ?", Date.today)
+      @past_meetings = @meetings.where("date < ? ", Date.today)
     else
       @person = Person.find(params[:person_id])
       flash[:alert] = "Permission Denied. Cannot access #{@person.first_name} #{@person.last_name}'s infomation."
