@@ -13,3 +13,5 @@ rails generate migration AddRoleToPeople role:string
 rails generate model Registration person:references meeting:references
 
 rails generate controller Registrations new edit show
+
+rails generate migration AddBioToPeople bio:string

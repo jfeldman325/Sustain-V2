@@ -84,6 +84,6 @@ class PeopleController < ApplicationController
 
   private
   def create_update_params
-    params.require(:person).permit(:first_name, :last_name, :admin, :image, :role)
+    params.require(:person).permit(:first_name, :last_name, :admin, :image, :role, :bio)
   end
 end
