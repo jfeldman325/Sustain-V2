@@ -19,6 +19,15 @@ class PeopleController < ApplicationController
   end
 
   def create
+    @person = Person.new(create_update_params)
+
+    if @person.save
+      flash[:notice] = "New person \'#{@person.first_name}\' created"
+      redirect_to people_path and return
+    else
+      flash[:error] = "Error adding event"
+      redirect_to new_person_path(@person) and return
+    end
   end
 
   def edit
@@ -31,7 +40,7 @@ class PeopleController < ApplicationController
     id = params[:id]
     @person = Person.find(id)
 
-    @person.update create_update_params
+    @person.update(create_update_params)
     if @person.save
       flash[:notice] = "#{@person.first_name} #{@person.last_name} has been updated"
       redirect_to person_path @person
@@ -42,6 +51,10 @@ class PeopleController < ApplicationController
   end
 
   def destroy
+    @person = Person.find(params[:id])
+    @person.destroy
+    flash[:notice] = "Person #{@person.first_name} deleted"
+    redirect_to people_path
   end
 
   def my_meetings
@@ -79,7 +92,6 @@ class PeopleController < ApplicationController
 
   def logout
     reset_session
-    print test
 
     redirect_to root_path
   end

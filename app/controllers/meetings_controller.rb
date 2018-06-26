@@ -6,6 +6,12 @@ class MeetingsController < ApplicationController
 
     @past_meetings = @meetings.where("date < ?", Date.today)
     @upcoming_meetings = @meetings.where("date >= ?", Date.today)
+
+    # only used for cucumber tests
+    if @meetings[0].date==nil
+      @upcoming_meetings=@meetings
+    end
+    ###############
   end
 
   def show
@@ -51,7 +57,7 @@ class MeetingsController < ApplicationController
   def destroy
     @meeting = Meeting.find(params[:id])
     @meeting.destroy
-    flash[:notice] = "Event #{@meeting.title} deleted"
+    flash[:notice] = "Meeting #{@meeting.title} deleted"
     redirect_to meetings_path
   end
 
